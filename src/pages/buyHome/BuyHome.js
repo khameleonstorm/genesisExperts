@@ -23,7 +23,7 @@ export default function RentHome() {
       method: 'GET',
       params: {offset: '0', limit: '42', state_code: stateCode, city, sort: 'newest'},
       headers: {
-        'X-RapidAPI-Key': process.env.REACT_APP_NEW_KEY,
+        'X-RapidAPI-Key': "8d94690c5emshf27b0999e032819p1fc340jsn6688a6a23f2d",
         'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com'
       }
     })
