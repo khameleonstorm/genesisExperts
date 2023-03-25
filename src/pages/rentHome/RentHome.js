@@ -28,6 +28,8 @@ export default function RentHome() {
       }
     })
 
+    console.log(process.env.REACT_APP_NEW_KEY)
+
     const { data, status } = await res.json();
     if(status === 200){
       setProperties(data.results)
