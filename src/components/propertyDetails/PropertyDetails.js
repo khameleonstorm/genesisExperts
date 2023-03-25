@@ -18,9 +18,11 @@ import Message from '../message/Message'
 import { doc, updateDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import { useNavigate } from "react-router-dom";
+import useCollection from "../../hooks/useCollection";
 
 
-export default function PropertyDetails({details, userDetails}) {
+export default function PropertyDetails({details}) {
+  const { document: userDetails, isPending } = useCollection('profile', false, true);
   const navigate = useNavigate()
   const createdAt = new Date().toLocaleString()
   const { addDocument } = useFirestore("transactions")
@@ -89,7 +91,7 @@ export default function PropertyDetails({details, userDetails}) {
 
 
 
-  return (details &&
+  return (details && userDetails &&
     <div  className={s.container}>
        {message && <Message success={success} failed={failed}  setMessage={setMessage}/>}
       <h2>More Details, <span>More</span> Satisfaction. </h2>

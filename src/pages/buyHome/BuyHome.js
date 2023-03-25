@@ -6,15 +6,15 @@ import { rent } from '../../utils/heroText'
 import Footer from '../../components/footer/Footer'
 import Filter from '../../components/filter/Filter'
 import Properties from '../../components/properties/Properties'
-import useCollection from '../../hooks/useCollection'
+import { MoonLoader } from 'react-spinners';
 
 export default function RentHome() {
+  const [pending, setPending] = useState(true)
   const [properties, setProperties] = useState(null)
   const [error, setError] = useState('')
   const [city, setCity] = useState('Detroit')
   const [stateCode, setStateCode] = useState('MI')
   const [inputValue, setInputValue] = useState("")
-  const { document, isPending } = useCollection('profile', false, true);
 
   useEffect(() => {
   async function fetchData() {
@@ -31,15 +31,16 @@ export default function RentHome() {
     const { data, status } = await res.json();
     if(status === 200){
       setProperties(data.results)
+      setPending(false)
     }
-
-    console.log(data.results)
 
   } catch (err) {
     setError(err.message)
+    setPending(false)
   }}
 
   fetchData()
+  setPending(false)
   }, [city, stateCode])
 
 
@@ -50,15 +51,27 @@ export default function RentHome() {
       }))
   };
 
+  
+  
+  if(pending && !properties){
+    return (
+      <div className="spinnerContainer">
+        <div className="spinner">
+          <MoonLoader color="#1649ff" />
+        </div>
+      </div>
+    )
+  }
+  
 
-
-  return (properties &&
+  if(!pending && properties){
+  return (
     <>
     <Nav />
     <Heroes text={rent}/>
     <Filter handleChange={handleChange} setStateCode={setStateCode} setCity={setCity} states={states}/>
-    <Properties props={properties} userDetails={document[0]}/>
+    <Properties props={properties} />
     <Footer />
     </>
   )
-}
+}}

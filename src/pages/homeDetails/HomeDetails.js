@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react'
 import Nav from '../../components/nav/Nav'
 import Footer from '../../components/footer/Footer'
-import useCollection from '../../hooks/useCollection'
 import PropertyDetails from '../../components/propertyDetails/PropertyDetails'
 import { useParams } from 'react-router-dom'
+import { MoonLoader } from 'react-spinners';
 
 export default function HomeDetails() {
+  const [pending, setPending] = useState(true)
   const [property, setProperty] = useState(null)
   const [error, setError] = useState('')
-  const { document } = useCollection('profile', false, true);
   const { id } = useParams();
 
   useEffect(() => {
+    setPending(true)
   async function fetchData() {
   try {
     const res = await fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${id}`, {
@@ -25,21 +26,39 @@ export default function HomeDetails() {
     const { data, status } = await res.json();
     if(status === 200){
       setProperty(data)
+      setPending(false)
     }
 
 
   } catch (err) {
     setError(err.message)
+    setPending(false)
   }}
 
   fetchData()
+  setPending(false)
   }, [id])
 
-  return (property &&
+    
+  if(pending && !property){
+    return (
+      <div className="spinnerContainer">
+        <div className="spinner">
+          <MoonLoader color="#1649ff" />
+        </div>
+      </div>
+    )
+  }
+
+
+
+
+  if(property && !pending){
+  return (
     <>
     <Nav />
-    <PropertyDetails details={property} userDetails={document[0]}/>
+    <PropertyDetails details={property}/>
     <Footer />
     </>
   )
-}
+}}

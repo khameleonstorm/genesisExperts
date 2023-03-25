@@ -6,17 +6,18 @@ import { rent } from '../../utils/heroText'
 import Footer from '../../components/footer/Footer'
 import Filter from '../../components/filter/Filter'
 import Properties from '../../components/properties/Properties'
-import useCollection from '../../hooks/useCollection'
+import { MoonLoader } from 'react-spinners';
 
 export default function RentHome() {
+  const [pending, setPending] = useState(true)
   const [properties, setProperties] = useState(null)
   const [error, setError] = useState('')
   const [city, setCity] = useState('Birmingham')
   const [stateCode, setStateCode] = useState('AL')
   const [inputValue, setInputValue] = useState("")
-  const { document, isPending } = useCollection('profile', false, true);
 
   useEffect(() => {
+    setPending(true)
   async function fetchData() {
   try {
     const res = await fetch(`https://us-real-estate.p.rapidapi.com/for-rent?offset=0&limit=42&state_code=${stateCode}&city=${city}&sort=newest`, {
@@ -32,13 +33,12 @@ export default function RentHome() {
       setProperties(data.results)
     }
 
-    console.log(data.results)
-
   } catch (err) {
     setError(err.message)
   }}
 
   fetchData()
+  setPending(false)
   }, [city, stateCode])
 
 
@@ -51,14 +51,26 @@ export default function RentHome() {
   };
 
 
+  
+  if(pending && !properties){
+    return (
+      <div className="spinnerContainer">
+        <div className="spinner">
+          <MoonLoader color="#1649ff" />
+        </div>
+      </div>
+    )
+  }
 
-  return (properties &&
+
+if(properties && !pending){
+  return (
     <>
     <Nav />
     <Heroes text={rent}/>
     <Filter handleChange={handleChange} setStateCode={setStateCode} setCity={setCity} states={states}/>
-    <Properties props={properties} userDetails={document[0]} rent={true}/>
+    <Properties props={properties} rent={true}/>
     <Footer />
     </>
   )
-}
+}}

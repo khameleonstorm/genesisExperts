@@ -7,11 +7,13 @@ import Message from '../message/Message'
 import { Link, useNavigate } from 'react-router-dom'
 import { db } from '../../firebase/config'
 import { doc, updateDoc } from 'firebase/firestore'
+import useCollection from '../../hooks/useCollection'
 
 
 
 
-export default function Properties({props, rent, error, userDetails}) {
+export default function Properties({props, rent, error}) {
+  const { document: userDetails, isPending } = useCollection('profile', false, true);
   const navigate = useNavigate()
   const createdAt = new Date().toLocaleString()
   const { addDocument } = useFirestore("transactions")
@@ -70,7 +72,7 @@ export default function Properties({props, rent, error, userDetails}) {
     }
 
 
-  return (
+  return (props && userDetails &&
       <div className={s.container}>
         {message && <Message success={success} failed={failed}  setMessage={setMessage}/>}
         {!(!error && props.length > 1) && 

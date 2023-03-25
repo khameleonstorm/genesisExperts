@@ -313,6 +313,20 @@ li{
   display: none;
 }
 
+.spinnerContainer{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  z-index: 20000;
+}
+
+.spinner{
+  width: 100px;
+  height: 100px;
+}
 
 @media screen and (max-width: 600px){
 .formCtn{

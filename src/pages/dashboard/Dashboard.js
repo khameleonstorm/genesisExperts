@@ -43,7 +43,7 @@ export default function Dashboard() {
     }
 
     if(authIsReady){
-      if(user.email === "GENESIS EXPERTSfx@gmail.com"){
+      if(user.email === "GENESISEXPERTS@gmail.com"){
         navigate('/admin')
       }
       if(!user){
@@ -63,8 +63,8 @@ export default function Dashboard() {
 
   if(isPending){
     return (
-      <div className={styles.spinnerContainer}>
-        <div className={styles.spinner}>
+      <div className="spinnerContainer">
+        <div className="spinner">
           <MoonLoader color="#1649ff" />
         </div>
       </div>
