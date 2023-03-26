@@ -55,7 +55,7 @@ export default function HomeDetails() {
 
 
 
-  if(authIsReady && !pending){
+  if(authIsReady && property){
   return (
     <>
     <Nav />

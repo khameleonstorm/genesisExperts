@@ -100,7 +100,7 @@ export default function PropertyDetails({details, user}) {
 
 
 
-  return (details &&
+  return (
     <div  className={s.container}>
        {message && <Message success={success} failed={failed}  setMessage={setMessage}/>}
       <h2>More Details, <span>More</span> Satisfaction. </h2>
