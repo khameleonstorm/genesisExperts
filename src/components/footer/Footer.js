@@ -8,10 +8,10 @@ export default function Footer() {
   return (
     <>
     <div className={s.container}>
-      <div className={s.links}>
       <Link to="/" className={s.logo}>
           <img src={logo} alt="logo"/>
         </Link>
+      <div className={s.links}>
         <h2>Useful Links</h2>
         <Link to="/home">Home</Link>
         <Link to="/about">About</Link>

@@ -7,6 +7,7 @@ import Footer from '../../components/footer/Footer'
 import Filter from '../../components/filter/Filter'
 import Properties from '../../components/properties/Properties'
 import { MoonLoader } from 'react-spinners';
+import useAuth from '../../hooks/useAuth'
 
 export default function RentHome() {
   const [pending, setPending] = useState(true)
@@ -15,6 +16,7 @@ export default function RentHome() {
   const [city, setCity] = useState('Detroit')
   const [stateCode, setStateCode] = useState('MI')
   const [inputValue, setInputValue] = useState("")
+  const { authIsReady, user } = useAuth();
 
   useEffect(() => {
   async function fetchData() {
@@ -53,7 +55,7 @@ export default function RentHome() {
 
   
   
-  if(pending && !properties){
+  if(pending && !authIsReady){
     return (
       <div className="spinnerContainer">
         <div className="spinner">
@@ -64,13 +66,13 @@ export default function RentHome() {
   }
   
 
-  if(!pending && properties){
+  if(!pending && authIsReady){
   return (
     <>
     <Nav />
     <Heroes text={buy}/>
     <Filter handleChange={handleChange} setStateCode={setStateCode} setCity={setCity} states={states}/>
-    <Properties props={properties} />
+    <Properties props={properties} user={user} error={error}/>
     <Footer />
     </>
   )

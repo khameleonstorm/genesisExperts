@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { db } from '../../firebase/config';
 import { useState, useEffect } from 'react';
 import s from './TrackOrder.module.css';
-import { collection, query, doc, onSnapshot } from 'firebase/firestore';
+import { collection, query, onSnapshot } from 'firebase/firestore';
 import Nav from '../../components/nav/Nav';
 import Footer from '../../components/footer/Footer';
 
@@ -12,8 +12,6 @@ const TrackOrder = () => {
   const params = useParams();
   const { id } = params;
   const [trackingData, setTrackingData] = useState('');
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     try {
@@ -21,8 +19,7 @@ const TrackOrder = () => {
 
       onSnapshot(q, (querySnapshot) => {
         if (querySnapshot.empty) {
-          setError('empty');
-          setLoading(false);
+          console.log('empty');
         } else {
           const data = querySnapshot.docs.map((doc) => ({
             ...doc.data(),
@@ -33,8 +30,7 @@ const TrackOrder = () => {
         }
       });
     } catch (err) {
-      setError(err.message);
-      setLoading(false);
+      console.log(err.message);
     }
   }, [id]);
 

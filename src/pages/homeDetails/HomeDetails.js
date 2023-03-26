@@ -4,12 +4,14 @@ import Footer from '../../components/footer/Footer'
 import PropertyDetails from '../../components/propertyDetails/PropertyDetails'
 import { useParams } from 'react-router-dom'
 import { MoonLoader } from 'react-spinners';
+import useAuth from '../../hooks/useAuth'
 
 export default function HomeDetails() {
   const [pending, setPending] = useState(true)
   const [property, setProperty] = useState(null)
   const [error, setError] = useState('')
   const { id } = useParams();
+  const { authIsReady, user } = useAuth();
 
   useEffect(() => {
     setPending(true)
@@ -40,7 +42,7 @@ export default function HomeDetails() {
   }, [id])
 
     
-  if(pending && !property){
+  if(pending && !authIsReady){
     return (
       <div className="spinnerContainer">
         <div className="spinner">
@@ -53,11 +55,11 @@ export default function HomeDetails() {
 
 
 
-  if(property && !pending){
+  if(authIsReady && !pending){
   return (
     <>
     <Nav />
-    <PropertyDetails details={property}/>
+    <PropertyDetails details={property} error={error} user={user}/>
     <Footer />
     </>
   )

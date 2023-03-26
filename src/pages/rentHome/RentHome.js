@@ -7,8 +7,10 @@ import Footer from '../../components/footer/Footer'
 import Filter from '../../components/filter/Filter'
 import Properties from '../../components/properties/Properties'
 import { MoonLoader } from 'react-spinners';
+import useAuth from '../../hooks/useAuth'
 
 export default function RentHome() {
+  const { authIsReady, user } = useAuth();
   const [pending, setPending] = useState(true)
   const [properties, setProperties] = useState(null)
   const [error, setError] = useState('')
@@ -27,6 +29,8 @@ export default function RentHome() {
         'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com'
       }
     })
+
+    console.log(res)
 
     const { data, status } = await res.json();
     if(status === 200){
@@ -52,7 +56,7 @@ export default function RentHome() {
 
 
   
-  if(pending && !properties){
+  if(!authIsReady || pending){
     return (
       <div className="spinnerContainer">
         <div className="spinner">
@@ -63,13 +67,13 @@ export default function RentHome() {
   }
 
 
-if(properties && !pending){
+if(!pending && authIsReady){
   return (
     <>
     <Nav />
     <Heroes text={rent}/>
     <Filter handleChange={handleChange} setStateCode={setStateCode} setCity={setCity} states={states}/>
-    <Properties props={properties} rent={true}/>
+    <Properties props={properties} rent={true} user={user} error={error}/>
     <Footer />
     </>
   )

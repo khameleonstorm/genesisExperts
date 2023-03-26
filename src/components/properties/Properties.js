@@ -1,34 +1,38 @@
 import { useState } from 'react'
 import s from "./Properties.module.css"
 import millify from "millify"
-import useAuth from '../../hooks/useAuth'
 import { useFirestore } from '../../hooks/useFirestore'
 import Message from '../message/Message'
 import { Link, useNavigate } from 'react-router-dom'
 import { db } from '../../firebase/config'
-import { doc, updateDoc } from 'firebase/firestore'
-import useCollection from '../../hooks/useCollection'
+import { doc, updateDoc, getDoc } from 'firebase/firestore'
 import { useEffect } from 'react'
 
 
 
 
-export default function Properties({props, rent, error}) {
-  const { document, isPending } = useCollection('profile', false, true);
+export default function Properties({props, rent, user, error}) {
   const navigate = useNavigate()
   const createdAt = new Date().toLocaleString()
   const { addDocument } = useFirestore("transactions")
-  const { user } = useAuth()
   const [message, setMessage] = useState(false)
   const [success, setSuccess] = useState(false)
   const [failed, setFailed] = useState(false)
   const [userDetails, setUserDetails] = useState(null)
 
   useEffect(()=> {
-    if (!isPending && document) {
-      setUserDetails(document[0])
+    if(user){
+      const docRef = doc(db, "profile", user.email)
+      getDoc(docRef).then((doc) => {
+        if (doc.exists()) {
+          setUserDetails({id: doc.id, ...doc.data()})
+        } else {
+          console.log("No such document!")
+        }
+      })
+      .catch(error => console.log("Error getting document:", error));
     }
-  }, [document, isPending])
+  }, [user])
 
     const handleRent = (amount, desc) => {
       if (user) {
@@ -80,7 +84,7 @@ export default function Properties({props, rent, error}) {
     }
 
 
-  return (props && userDetails &&
+  return (props &&
       <div className={s.container}>
         {message && <Message success={success} failed={failed}  setMessage={setMessage}/>}
         {!(!error && props.length > 1) && 

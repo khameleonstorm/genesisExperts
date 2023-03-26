@@ -11,33 +11,36 @@ import s from "./PropertyDetails.module.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-import {  useState } from 'react'
-import useAuth from '../../hooks/useAuth'
 import { useFirestore } from '../../hooks/useFirestore'
 import Message from '../message/Message'
-import { doc, updateDoc } from "firebase/firestore"
+import { doc, updateDoc,getDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import { useNavigate } from "react-router-dom";
-import useCollection from "../../hooks/useCollection";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 
-export default function PropertyDetails({details}) {
-  const { document, isPending } = useCollection('profile', false, true);
+export default function PropertyDetails({details, user}) {
   const navigate = useNavigate()
   const createdAt = new Date().toLocaleString()
   const { addDocument } = useFirestore("transactions")
-  const { user } = useAuth()
   const [message, setMessage] = useState(false)
   const [success, setSuccess] = useState(false)
   const [failed, setFailed] = useState(false)
   const [userDetails, setUserDetails] = useState(null)
 
   useEffect(()=> {
-    if (!isPending && document) {
-      setUserDetails(document[0])
+    if(user){
+      const docRef = doc(db, "profile", user.email)
+      getDoc(docRef).then((doc) => {
+        if (doc.exists()) {
+          setUserDetails({id: doc.id, ...doc.data()})
+        } else {
+          console.log("No such document!")
+        }
+      })
+      .catch(error => console.log("Error getting document:", error));
     }
-  }, [document, isPending])
+  }, [user])
 
     const handleRent = (amount, desc) => {
       if (user) {
@@ -97,7 +100,7 @@ export default function PropertyDetails({details}) {
 
 
 
-  return (details && userDetails &&
+  return (details &&
     <div  className={s.container}>
        {message && <Message success={success} failed={failed}  setMessage={setMessage}/>}
       <h2>More Details, <span>More</span> Satisfaction. </h2>

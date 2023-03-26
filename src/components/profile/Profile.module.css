@@ -61,7 +61,7 @@
 
 .equity{
   width: 100%;
-  background: rgba(0, 233, 155, 0.1);
+  background: rgb(230, 230, 230);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
@@ -85,7 +85,7 @@
 }
 
 .referralCode{
-  background: rgba(0, 233, 155, 0.1);
+  background: rgb(230, 230, 230);
   border-radius: 20px;
   padding: 20px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
@@ -98,53 +98,6 @@
 }
 
 .referralCode p{
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 1rem;
-  font-weight: 600;
-  padding-bottom: 20px;
-}
-
-.referred{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.referCount{
-  width: 48%;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-  background: rgba(0, 233, 155, 0.1);
-}
-
-.referCount h1{
-  color: rgb(0, 0, 0);
-  font-size: 2rem;
-}
-
-.referCount p{
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 1rem;
-  font-weight: 600;
-  padding-bottom: 20px;
-}
-
-.referEarn{
-  width: 48%;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
-  background: rgba(0, 233, 155, 0.1);
-}
-
-.referEarn h1{
-  color: rgb(0, 0, 0);
-  font-size: 2rem;
-}
-
-.referEarn p{
   color: rgba(0, 0, 0, 0.5);
   font-size: 1rem;
   font-weight: 600;

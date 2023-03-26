@@ -37,7 +37,7 @@
 }
 
 .menu a{
-  font-weight: 300;
+  font-weight: 400;
   font-size: .9rem;
 }
 
@@ -123,6 +123,10 @@
   z-index: 10000;
   transition: all ease-in-out .5s;
   font-size: 1rem;
+}
+
+.menu a{
+  font-size: 1.1rem;
 }
 
 
