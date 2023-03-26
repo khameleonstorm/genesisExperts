@@ -71,7 +71,7 @@ export default function BalCard() {
         setShowReader(true)
 
         // first investment plan
-        if(bal.investment >= 50 && bal.investment <= 300){
+        if(bal.investment >= 100 && bal.investment <= 500){
           const roi = bal.investment * 0.15
           const duration = 0.001 * 86400000 / roi
 
@@ -89,7 +89,7 @@ export default function BalCard() {
         }
 
         //second investment plan
-        if(bal.investment >= 300 && bal.investment <= 999){
+        if(bal.investment >= 500 && bal.investment <= 999){
           const roi = bal.investment * 0.45
           const duration = 0.001 * 86400000 / roi
 

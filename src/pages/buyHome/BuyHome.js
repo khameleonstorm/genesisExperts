@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Heroes from '../../components/heroes/Heroes'
 import Nav from '../../components/nav/Nav'
 import { states } from '../../utils/states'
-import { rent } from '../../utils/heroText'
+import { buy } from '../../utils/heroText'
 import Footer from '../../components/footer/Footer'
 import Filter from '../../components/filter/Filter'
 import Properties from '../../components/properties/Properties'
@@ -68,7 +68,7 @@ export default function RentHome() {
   return (
     <>
     <Nav />
-    <Heroes text={rent}/>
+    <Heroes text={buy}/>
     <Filter handleChange={handleChange} setStateCode={setStateCode} setCity={setCity} states={states}/>
     <Properties props={properties} />
     <Footer />

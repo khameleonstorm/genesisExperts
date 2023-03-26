@@ -19,10 +19,11 @@ import { doc, updateDoc } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import { useNavigate } from "react-router-dom";
 import useCollection from "../../hooks/useCollection";
+import { useEffect } from "react";
 
 
 export default function PropertyDetails({details}) {
-  const { document: userDetails, isPending } = useCollection('profile', false, true);
+  const { document, isPending } = useCollection('profile', false, true);
   const navigate = useNavigate()
   const createdAt = new Date().toLocaleString()
   const { addDocument } = useFirestore("transactions")
@@ -30,8 +31,13 @@ export default function PropertyDetails({details}) {
   const [message, setMessage] = useState(false)
   const [success, setSuccess] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [userDetails, setUserDetails] = useState(null)
 
-  console.log(details)
+  useEffect(()=> {
+    if (!isPending && document) {
+      setUserDetails(document[0])
+    }
+  }, [document, isPending])
 
     const handleRent = (amount, desc) => {
       if (user) {
@@ -112,11 +118,9 @@ export default function PropertyDetails({details}) {
           className={s.mySwiper}
         >
           {details.photos.map((Detail, index) =>
-             <div key={index} className={s.photos}>
-                <SwiperSlide className={s.swiperslides}>
-                  <img src={Detail.href} alt={Detail.type}/>
-                </SwiperSlide>
-            </div>
+              <SwiperSlide key={index} className={s.swiperslides}>
+                <img src={Detail.href} alt={Detail.type}/>
+              </SwiperSlide>
             )}
         </Swiper>
           <div className={s.text}>

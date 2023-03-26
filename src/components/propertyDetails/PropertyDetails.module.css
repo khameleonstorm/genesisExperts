@@ -62,7 +62,7 @@
 .text p{
   font-size: 1rem;
   font-weight: 100;
-  color: #e3e3e3;
+  color: #e3e3e3c0;
   line-height: 1.5;
   padding-top: 10px;
 }

@@ -17,7 +17,6 @@ import Footer from '../../components/footer/Footer';
 // import texts from utils 
 import { homeSec1Text, homeSec2Text, homeSec3Text, homeSec5Text, homeSec6Text, services, heroText, testimonials, withdrawals } from '../../utils/homeText';
 import { investment } from '../../utils/investText';
-import ContactForm from '../../components/contactForm/ContactForm';
 import { MoonLoader } from 'react-spinners';
 import GeneralWithdraws from '../../components/generalWithdraws/GeneralWithdraws';
 
@@ -25,13 +24,6 @@ import GeneralWithdraws from '../../components/generalWithdraws/GeneralWithdraws
 
 export default function Home() {
   const { authIsReady } = useAuth();
-
-  // useEffect(() => {
-  //   const chatDiv = document.getElementById('tv-embed-widget-wrapper__body')
-  //   if(chatDiv){
-  //     chatDiv[0].style.background = 'none';
-  //   }
-  // }, [])
 
 
   if(!authIsReady){
@@ -46,7 +38,7 @@ export default function Home() {
 
 
   if(authIsReady){
-    return (authIsReady &&
+    return (
       <div className={styles.container}>
         <Nav />
         <Hero title={heroText.title} subtitle={heroText.subtitle} image={heroText.image} link={heroText.link}/>
@@ -59,7 +51,6 @@ export default function Home() {
         <Learning />
         <Testimonials title={testimonials.title} subtitle={testimonials.subtitle} testimonials={testimonials.card} />
         <HomeSec2 title={homeSec5Text.title} subtitle={homeSec5Text.subtitle} image={homeSec2Text.image} accordions={homeSec5Text.accordions} reverse={true}/>
-        <ContactForm />
         <Footer />
         <GeneralWithdraws withdrawals={withdrawals}/>
       </div>

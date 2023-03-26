@@ -12,8 +12,8 @@ export const investment = {
   {
     id: 1,
     percent: 15,
-    min: 50,
-    max: 300,
+    min: 100,
+    max: 500,
     title: "STANDARD PLAN",
     falsepoints: ["Management fee", "Deposit fee"],
     truepoints: ["Pro Personalized Portfolio", "5% Referral Bonus", "ROI After 24 hours", "Min Withdrawal → $20", "24/7 Customer Care"],
@@ -23,10 +23,10 @@ export const investment = {
     id: 2,
     percent: 45,
     title: "MEDIUM PLAN",
-    min: 300,
+    min: 500,
     max: 999,
     falsepoints: ["Management fee", "Deposit fee"],
-    truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 24 hours", "Min Withdrawal → $20", "24/7 Customer Care"],
+    truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 24 hours", "Min Withdrawal → $100", "24/7 Customer Care"],
     background: "#00A3FF",   
   },
   {
@@ -36,7 +36,7 @@ export const investment = {
     max: 9999,
     title: "EXECUTIVE PLAN",
     falsepoints: ["Management fee", "Deposit fee"],
-    truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 48 hours", "Min Withdrawal → $20", "24/7 Customer Care"],
+    truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 48 hours", "Min Withdrawal → $500", "24/7 Customer Care"],
     background: "#b4ff3b",   
   },
   {
@@ -46,7 +46,7 @@ export const investment = {
     max: "Unlimited",
     title: "PROFESSIONAL PLAN",
     falsepoints: ["Management fee", "Deposit fee"],
-    truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 72 hours", "Min Withdrawal → $20", "24/7 Customer Care"],
+    truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 72 hours", "Min Withdrawal → $1000", "24/7 Customer Care"],
     background: "#f67eff",    
   },
 ]};

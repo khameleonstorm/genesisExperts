@@ -1,7 +1,7 @@
 import logo from "../../assets/logo.png"
 import { NavLink, Link } from "react-router-dom"
 import styles from "./Nav.module.css"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import useAuth from "../../hooks/useAuth"
 import { Helmet } from "react-helmet"
 
@@ -22,19 +22,6 @@ export default function Nav({black}) {
       setNavbg(false)
     }
   }
-
-  const handleContact = () => {
-    const contact = document.getElementById("contact");
-    window.scrollTo({
-      top:contact.offsetTop,
-      behavior:"smooth"
-    });
-    console.log(contact)
-  }
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleNavbg)
-  }, [])
 
   return (
     <>
@@ -63,7 +50,6 @@ export default function Nav({black}) {
           <NavLink to="/shipment">Shipment</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/plans">Plans</NavLink>
-          <a onClick={handleContact} href="#contact">Contact</a>
 
           {!user &&
           <>

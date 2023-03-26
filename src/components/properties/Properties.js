@@ -8,12 +8,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { db } from '../../firebase/config'
 import { doc, updateDoc } from 'firebase/firestore'
 import useCollection from '../../hooks/useCollection'
+import { useEffect } from 'react'
 
 
 
 
 export default function Properties({props, rent, error}) {
-  const { document: userDetails, isPending } = useCollection('profile', false, true);
+  const { document, isPending } = useCollection('profile', false, true);
   const navigate = useNavigate()
   const createdAt = new Date().toLocaleString()
   const { addDocument } = useFirestore("transactions")
@@ -21,6 +22,13 @@ export default function Properties({props, rent, error}) {
   const [message, setMessage] = useState(false)
   const [success, setSuccess] = useState(false)
   const [failed, setFailed] = useState(false)
+  const [userDetails, setUserDetails] = useState(null)
+
+  useEffect(()=> {
+    if (!isPending && document) {
+      setUserDetails(document[0])
+    }
+  }, [document, isPending])
 
     const handleRent = (amount, desc) => {
       if (user) {

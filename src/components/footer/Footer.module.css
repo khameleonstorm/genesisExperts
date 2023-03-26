@@ -11,10 +11,16 @@
   width: 30%;
 }
 
-.address h1{
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: rgb(181, 181, 181);
+.logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.logo img{
+  width: 150px;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
 }
 
 .address p{
@@ -72,49 +78,6 @@
   color: rgb(0, 163, 114);
 }
 
-.socials{
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.socials h2{
-  font-size: 1rem;
-  margin-bottom: 10px;
-}
-
-.socials p{
-  font-size: .8rem;
-}
-
-.icons{
-  display: flex;
-  gap: 7px;
-}
-
-.icons a{
-  width: 35px;
-  height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
-  transition: all .3s ease;
-}
-
-.icons a:hover{
-  background: #1649ff;
-  color: rgb(255, 255, 255);
-}
-
-@media screen and (max-width: 1050px){
-.socials{
-  width: 200px;
-}
-}
 
 
 @media screen and (max-width: 800px){
@@ -123,6 +86,7 @@
   align-items: center;
   gap: 30px;
   padding: 30px 20px;
+  text-align: center;
 }
 
 .address{
