@@ -22,7 +22,6 @@ export default function Admin() {
   const [investment, setInvestment] = useState(null);
   const [withdrawal, setWithdrawal] = useState(null);
   const [savings, setSavings] = useState(null);
-  const [displayName, setDisplayName] = useState(null);
   const [email, setEmail] = useState(null);
   const [pending, setPending] = useState(false);
   const [message, setMessage] = useState(null);
@@ -30,13 +29,13 @@ export default function Admin() {
 
 
   useEffect(() => {
-    if(user?.email !== 'trustsolidfx@gmail.com'){
+    if(user?.email !== 'help@genesis-experts.com'){
       navigate('/dashboard')
     }
 
     const chatDiv = document.getElementById('tidio-chat')
     if(chatDiv){
-      // chatDiv.style.display = 'none';
+      chatDiv.style.display = 'none';
     }
 
 
@@ -76,7 +75,6 @@ const filter = (email) => {
   setInvestment(filteredDoc[0].bal.investment)
   setWithdrawal(filteredDoc[0].bal.withdrawal)
   setSavings(filteredDoc[0].bal.savings)
-  setDisplayName(filteredDoc[0].displayName)
   setEmail(filteredDoc[0].email)
 }
 
@@ -111,8 +109,6 @@ const handleSubmit = async(e) => {
 }
 
 const deleteUserDocument = async () => {
-  // const removeUser = getAuth.getUserByEmail(email)
-  // await deleteUser(removeUser)
   await deleteDoc(doc(db, "profile", email));
   setSingleDoc(null)
   console.log("Done deleting")
@@ -121,7 +117,7 @@ const deleteUserDocument = async () => {
 
 
 
-  return ((authIsReady && user?.email === "trustsolidfx@gmail.com") && 
+  return ((authIsReady && user?.email === "help@genesis-experts.com") && 
     <div className={styles.container}>
       <DashboardNav admin={true}/>
       <Users document={Document} error={error} isPending={isPending} filter={filter}/>
@@ -129,7 +125,6 @@ const deleteUserDocument = async () => {
       {singleDoc &&
       <div className={styles.singleUser}>
         <form onSubmit={handleSubmit} className={styles.card}>
-          <h1>{displayName}</h1>
           <p>{email}</p>
           <TextField 
           type="number" 

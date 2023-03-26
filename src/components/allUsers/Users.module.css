@@ -1,5 +1,5 @@
 .container{
-  width: 70px;
+  width: 80px;
   min-height: 100vh;
   height: 100%;
   background: #fffffc;
@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 100px 0px 20px 10px;
+  padding: 100px 0px 20px 5px;
   overflow-x: hidden;
   overflow-y: scroll;
   position: fixed;
@@ -66,9 +66,10 @@
 }
 
 .img img{
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
+  background: rgb(103, 103, 103);
 }
 
 .arrow{
@@ -81,7 +82,17 @@
 
 @media screen and (max-width: 600px){
 .container{
-  width: 40px;
+  width: 48px;
   padding-left: 0;
+  gap: 10px;
+}
+
+.users{
+  padding: 3px;
+}
+
+.img img{
+  width: 40px;
+  height: 40px;
 }
 }

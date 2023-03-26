@@ -35,7 +35,7 @@ export const useLogin = () => {
                 setIsPending(false)
             }
 
-            if(res.user.displayName === 'admin'){
+            if(res.user.email === 'help@genesis-experts.com'){
                 navigate('/admin')
             } else{
                 navigate('/dashboard')

@@ -104,7 +104,7 @@ export const useSignup = () => {
             setError(null)
         }
         
-        if(res.user.displayName === 'admin'){
+        if(res.user.email === 'help@genesis-experts.com'){
           navigate('/admin')
         } else{
             navigate('/dashboard')

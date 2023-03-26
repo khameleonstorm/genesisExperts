@@ -21,7 +21,7 @@ export default function Users({document, error, isPending, filter}) {
       document.map((user) => 
         <div className={styles.users} key={user.uid} onClick={() => filter(user.email)}>
             <div className={styles.img}>
-              <img src={user.photoURL ? user.photoURL : `https://robohash.org/${user.uid}`} width={33} height={33} alt="avatar" style={{borderRadius: "50%"}}/>
+              <img src={`https://robohash.org/${user.uid}`} width={33} height={33} alt="avatar" style={{borderRadius: "50%"}}/>
             </div>
             <p>{user.email}</p>
         </div>
