@@ -11,7 +11,7 @@ import { useSignup } from '../../hooks/useSignup';
 import useAuth from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { PulseLoader } from 'react-spinners';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
 
 export default function SignUp() {
@@ -191,12 +191,12 @@ export default function SignUp() {
     signUp(data);
 
     // sending data to server
-    // emailjs.sendForm('service_2sn4xvp', 'template_7n2mh1p', form.current, '6DdKsMl4BaIFww4Tv')
-    // .then((result) => {
-    //     console.log(result.text);
-    // }, (error) => {
-    //     console.log(error.text);
-    // });
+    emailjs.sendForm('service_z98ilg7', 'template_px73xkk', form.current, '4XJeofv3Cw2pDpuHH')
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
 
 
     console.log(data);

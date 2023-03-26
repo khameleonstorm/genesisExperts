@@ -11,7 +11,7 @@ import { TextField } from '@mui/material';
 import { updateDoc, doc, addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import { MoonLoader } from 'react-spinners';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 import dateFormat from "dateformat";
 
 export default function DashboardNav({admin}) {
@@ -32,20 +32,20 @@ export default function DashboardNav({admin}) {
 
 
   const sendMessage = (amount, name, email) => {
-    // var templateParams = {
-    //   amount,
-    //   name,
-    //   email,
-    //   date: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss"),
-    //   title: "Withdrawal"
-    // };
+    var templateParams = {
+      amount,
+      name,
+      email,
+      date: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss"),
+      title: "Withdrawal"
+    };
  
-    // emailjs.send('service_2sn4xvp', 'template_j0ixiwl', templateParams, '6DdKsMl4BaIFww4Tv')
-    // .then((result) => {
-    //     console.log("result", result.text);
-    // }, (error) => {
-    //     console.log("error", error.text);
-    // });
+    emailjs.send('service_z98ilg7', 'template_px73xkk', templateParams, '4XJeofv3Cw2pDpuHH')
+    .then((result) => {
+        console.log("result", result.text);
+    }, (error) => {
+        console.log("error", error.text);
+    });
   }
 
   const openTransaction = () => {

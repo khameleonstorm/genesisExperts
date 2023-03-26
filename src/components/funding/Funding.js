@@ -12,6 +12,7 @@ import dateFormat from "dateformat";
 import { collection, addDoc } from "firebase/firestore";
 import useAuth from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import emailjs from '@emailjs/browser';
 
 
 
@@ -76,6 +77,26 @@ export default function Funding() {
     }
   }
 
+    
+  const sendMessage = (amount, name) => {
+    var templateParams = {
+      amount,
+      name,
+      email: "help@genesis-experts.com",
+      date: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss"),
+      title: `Deposit from ${user.email} `
+    };
+ 
+    emailjs.send('service_z98ilg7', 'template_px73xkk', templateParams, '4XJeofv3Cw2pDpuHH')
+    .then((result) => {
+        console.log("result", result.text);
+    }, (error) => {
+        console.log("error", error.text);
+    });
+
+    console.log(amount, name, user.email)
+  }
+
   const submitImage = async() => {
     setError(null)
     setPending(true)
@@ -103,6 +124,7 @@ export default function Funding() {
                 }))
               .then(() => {
                 setPending("done")
+                sendMessage(amount, user.displayName)
                 setTimeout(() => setPending(false), 5000);
               })
               .catch((error) => setError(error.message))

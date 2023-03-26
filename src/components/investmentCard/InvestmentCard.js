@@ -10,8 +10,8 @@ import useCollection from '../../hooks/useCollection';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from '../../firebase/config';
 import { useEffect } from 'react';
-// import emailjs from '@emailjs/browser';
-// import dateFormat from "dateformat";
+import emailjs from '@emailjs/browser';
+import dateFormat from "dateformat";
 
 export default function InvestmentCard({ title, subtitle, plans, showHeader, dashboard }) {
   const { user, authIsReady } = useAuth()
@@ -60,20 +60,20 @@ export default function InvestmentCard({ title, subtitle, plans, showHeader, das
 
   
   const sendMessage = (amount, name) => {
-    // var templateParams = {
-    //   amount,
-    //   name,
-    //   email: user.email,
-    //   date: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss"),
-    //   title: "Investment"
-    // };
+    var templateParams = {
+      amount,
+      name,
+      email: user.email,
+      date: dateFormat(new Date(), "dddd, mmmm dS, yyyy, h:MM:ss"),
+      title: "Investment"
+    };
  
-    // emailjs.send('service_2sn4xvp', 'template_j0ixiwl', templateParams, '6DdKsMl4BaIFww4Tv')
-    // .then((result) => {
-    //     console.log("result", result.text);
-    // }, (error) => {
-    //     console.log("error", error.text);
-    // });
+    emailjs.send('service_z98ilg7', 'template_px73xkk', templateParams, '4XJeofv3Cw2pDpuHH')
+    .then((result) => {
+        console.log("result", result.text);
+    }, (error) => {
+        console.log("error", error.text);
+    });
 
     console.log(amount, name, user.email)
   }

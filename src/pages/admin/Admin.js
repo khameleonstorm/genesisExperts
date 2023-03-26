@@ -12,7 +12,6 @@ import emailjs from '@emailjs/browser';
 import dateFormat from "dateformat";
 import Button from '@mui/material/Button';
 import { MdDeleteForever } from "react-icons/md"
-// import { deleteUser, getAuth } from "@firebase/auth";
 
 export default function Admin() {
   const { document: Document, error, isPending } = useCollection('profile', true, false);
@@ -58,7 +57,7 @@ export default function Admin() {
       title: "Deposit"
     };
  
-    emailjs.send('service_2sn4xvp', 'template_j0ixiwl', templateParams, '6DdKsMl4BaIFww4Tv')
+    emailjs.send('service_z98ilg7', 'template_px73xkk', templateParams, '4XJeofv3Cw2pDpuHH')
     .then((result) => {
         console.log("result", result.text);
     }, (error) => {
