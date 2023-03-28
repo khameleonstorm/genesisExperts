@@ -186,7 +186,7 @@ export default function DashboardNav({admin}) {
       <div className={styles.modal}>
         <div className={styles.modalcontent}>
           <form onSubmit={handleSubmit}>
-            <h1>Enter Amount & Address(USDT)</h1>
+            <h1>Enter Amount & Address</h1>
             <TextField 
               id="Amount" 
               label="Amount" 
@@ -230,7 +230,7 @@ export default function DashboardNav({admin}) {
         <MdKeyboardArrowDown size="1.8em" style={{cursor: 'pointer'}} onClick={handleClick}/>
         {menu && 
           <div className={styles.menu} onClick={handleClick}>
-            {(user?.email !== "GENESIS EXPERTSfx@gmail.com") && 
+            {(user?.email !== "help@genesis-experts.com") && 
             <>
               <Link to="/home">Home</Link>
               <Link to="/about">About</Link>
@@ -238,7 +238,7 @@ export default function DashboardNav({admin}) {
               <Link to="#" onClick={handleWithdraw}>Withdraw</Link>
             </>
             }
-            {(user?.email === "GENESIS EXPERTSfx@gmail.com") && <Link to="#" onClick={openTransaction}>Transactions</Link>}
+            {(user?.email === "help@genesis-experts.com") && <Link to="#" onClick={openTransaction}>Transactions</Link>}
             <Button variant="outlined" color="error" size="small" style={{fontSize: "0.7rem"}} onClick={logout}> Logout <HiOutlineLogout size="1.3em"
             style={{marginLeft: "1rem"}}
             /></Button>
