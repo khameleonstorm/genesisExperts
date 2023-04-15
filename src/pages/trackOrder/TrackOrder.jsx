@@ -48,8 +48,12 @@ const TrackOrder = () => {
 
           {(trackingData?.extra?.map((item, i) => (
                 <div key={i} className={s.tracking_info_extra}>
-                  <p>Time: <span>{item.time}</span> </p>
+                  <p>Name: <span>{item.name}</span> </p>
+                  <p>Email: <span>{item.email}</span> </p>
+                  <p>Phone: <span>{item.phone}</span> </p>
                   <p>Date: <span>{item.date}</span> </p>
+                  <p>Country: <span>{item.country}</span> </p>
+                  <p>Address: <span>{item.address}</span> </p>
                   <p>Comment:  <span>{item.comment}</span></p>
                 </div>
               ))
