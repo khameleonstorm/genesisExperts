@@ -94,7 +94,7 @@ const TrackOrder = () => {
             <thead>
               <tr>
                 <th>Quantity</th>
-                <th>Type</th>
+                <th>Weight</th>
                 <th>Description</th>
                 <th>Length</th>
                 <th>Width</th>
@@ -104,7 +104,7 @@ const TrackOrder = () => {
               {(trackingData?.packaging?.map((item, index) => (
                     <tr key={index}>
                       <td>{item.PQuantity}</td>
-                      <td>{item.PType}</td>
+                      <td>{item.PWeight}</td>
                       <td>{item.PDesc}</td>
                       <td>{item.PLength}</td>
                       <td>{item.PWidth}</td>
