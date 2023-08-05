@@ -31,6 +31,7 @@ export default function SignUp() {
     referral: '',
     gender: '',
     bitcoinAddress: '',
+    ethereumAddress: '',
     usdtAddress: '',
     emailChecked: false,
     policyChecked: false,
@@ -95,6 +96,7 @@ export default function SignUp() {
       password: password,
       gender: values.gender,
       bitcoinAddress: values.bitcoinAddress,
+      ethereumAddress: values.ethereumAddress,
       usdtAddress: values.usdtAddress,
     };
 
@@ -156,26 +158,6 @@ export default function SignUp() {
 
     if(password.length < 6) {
       setFormError({...formError, password: "Password is too short"});
-      return
-    }
-    
-    if(values.bitcoinAddress === "") {
-      setFormError({...formError, bitcoinAddress: "Address cannot be empty"});
-      return
-    }
-
-    if(values.bitcoinAddress.length < 10) {
-      setFormError({...formError, bitcoinAddress: "Address is too short"});
-      return
-    }
-
-    if(values.usdtAddress === "") {
-      setFormError({...formError, usdtAddress: "Address cannot be empty"});
-      return
-    }
-
-    if(values.usdtAddress.length < 10) {
-      setFormError({...formError, usdtAddress: "Address is too short"});
       return
     }
 
@@ -336,14 +318,19 @@ export default function SignUp() {
         id="bitcoin" 
         label="Your Bitcoin Address"  
         variant="outlined" 
-        onChange={handleChange("bitcoinAddress")}
-        {...(formError.bitcoinAddress && {error: true, helperText: formError.bitcoinAddress})}/>
+        onChange={handleChange("bitcoinAddress")}/>
+
+        <TextField 
+        id="ethereum" 
+        label="Your Ethereum Address"  
+        variant="outlined" 
+        onChange={handleChange("ethereumAddress")}/>
+
         <TextField 
         id="usdt" 
         label="Your USDT Address"  
         variant="outlined" 
-        onChange={handleChange("usdtAddress")}
-        {...(formError.usdtAddress && {error: true, helperText: formError.usdtAddress})}/>
+        onChange={handleChange("usdtAddress")}/>
 
         <div className={styles.checkbox}>
           <input type="checkbox" onClick={handleCheckBox("policyChecked")}/>
