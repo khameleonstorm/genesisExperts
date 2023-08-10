@@ -280,9 +280,44 @@ li{
 }
 
 .formError{
+  display: block;
+  width: 100%;
   color: rgb(247, 45, 45);
+  background-color: rgba(255, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  border-left: 2px solid rgb(247, 45, 45);
   font-size: 0.9rem;
+  font-weight: 500;
   word-wrap: break-word;
+  margin: 10px 0;
+}
+
+.formWarning{
+  display: block;
+  width: 100%;
+  color: rgb(247, 163, 45);
+  background-color: rgba(255, 136, 0, 0.05);
+  padding: 10px;
+  border-radius: 12px;
+  border-left: 2px solid rgb(247, 163, 45);
+  font-size: 0.8rem;
+  word-wrap: break-word;
+  margin: 10px 0;
+}
+
+.formSuccess{
+  display: block;
+  width: 100%;
+  color: rgb(60, 188, 0);
+  background-color: rgba(0, 255, 60, 0.03);
+  padding: 10px;
+  border-radius: 12px;
+  border-left: 2px solid rgb(13, 255, 0);
+  font-size: 0.8rem;
+  font-weight: 400;
+  word-wrap: break-word;
+  margin: 10px 0;
 }
 
 .swiper-button-prev,

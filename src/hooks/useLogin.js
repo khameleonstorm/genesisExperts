@@ -43,11 +43,12 @@ export const useLogin = () => {
 
         } catch (err) {
             if(err){
-                console.log(err.message)
-                setError(err.message)
-                setTimeout(() => {
-                    setError(null)
-                }, 5000);
+                console.log(err.code)
+                if(err.code === 'auth/user-disabled'){
+                  setError('Disabled')
+                } else {
+                  setError(err.code)
+                }
                 setIsPending(false)
              }
         }
