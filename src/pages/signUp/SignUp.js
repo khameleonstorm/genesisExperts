@@ -1,6 +1,6 @@
 import styles from './SignUp.module.css';
 import Nav from '../../components/nav/Nav';
-import { FormControl, IconButton, InputAdornment, InputLabel, MenuItem, OutlinedInput, Select, TextField } from '@mui/material';
+import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import {MdVisibilityOff, MdVisibility} from "react-icons/md"
 import {AiFillCamera} from "react-icons/ai"
 import { Link } from 'react-router-dom';
@@ -141,7 +141,7 @@ export default function SignUp() {
       return
     }
 
-    if(values.image === {} || values.image === undefined) {
+    if(values.image === undefined) {
       setFormError({...formError, image: "Image is invalid"});
       return
     }
@@ -203,75 +203,60 @@ export default function SignUp() {
       <Nav black={true}/>
       <form className='form' onSubmit={handleSubmit} ref={form}>
         <h1>Create An Account</h1>
-        <TextField 
-        id="full_name" 
-        label="Full Name" 
-        variant="outlined" 
-        name="fullName"
+        <input 
+        placeholder='Full Name'
         type="text" 
         {...(formError.fullName && {error: true, helperText: formError.fullName})}
         autoComplete='off'
+        className="formInput" 
         onChange={handleChange("fullName")}/>
 
-        <TextField 
-        id="username" 
-        label="Username" 
-        variant="outlined" 
+        <input 
+        placeholder='Username'
         type="text" 
         autoComplete='off'
         {...(formError.username && {error: true, helperText: formError.username})}
+        className="formInput" 
         onChange={handleChange("username")}/>
 
-        <TextField 
-        id="email" 
-        label="Email" 
-        variant="outlined" 
+        <input 
         name='email'
+        placeholder='Email'
         type="email" 
         autoComplete='off'
         {...(formError.email && {error: true, helperText: formError.email})}
+        className="formInput" 
         onChange={handleChange("email")}/>
 
-        <TextField 
-        id="phoneNumber" 
-        label="Phone Number" 
-        variant="outlined" 
+        <input
         name='phoneNumber'
-        type="tel" 
+        placeholder='Phone Number'
+        type="tel"
         autoComplete='off'
         {...(formError.phoneNumber && {error: true, helperText: formError.phoneNumber})}
+        className="formInput" 
         onChange={handleChange("phoneNumber")}/>
 
-        <FormControl fullWidth>
-        <InputLabel id="country">Country</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="select country"
+        <select
           value={values.country}
-          label="Country"
-          {...(formError.country && {error: true})}
           onChange={handleChange('country')}
+          className='formInput'
         >
+          <option readOnly>Country</option>
           {countries.map((country, index) => (
-            <MenuItem key={index} value={country.name}>{country.name}</MenuItem>
+            <option key={index} value={country.name}>{country.name}</option>
             ))}
-        </Select>
-        </FormControl>
+        </select>
 
-        <FormControl fullWidth>
-        <InputLabel id="gender">Gender</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="select gender"
+
+        <select
           value={values.gender}
-          label="Gender"
-          {...(formError.gender && {error: true})}
           onChange={handleChange('gender')}
-        >
-          <MenuItem value="Male">Male</MenuItem>
-          <MenuItem value="Female">Female</MenuItem>
-        </Select>
-        </FormControl>
+          className='formInput'>
+          <option readOnly>Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
 
         {/* password input and event */}
         <FormControl sx={{ width: '100%' }} variant="outlined">
@@ -281,6 +266,7 @@ export default function SignUp() {
               autoComplete: 'new-password',
             }}
             id="outlined-adornment-password"
+            placeholder=''
             type={values.showPassword ? 'text' : 'password'}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -300,46 +286,45 @@ export default function SignUp() {
             label="Password"
           />
         </FormControl>
+
         <div className={styles.upload}>
           <p>{values.image.name === undefined? "Upload Profile Picture" : `${values.image.name}`}</p>
           {formError.image && <p className={styles.error}>{formError.image}</p>}
-          <input accept="image/*" type="file" onChange={handleImageUpload}/>
+          <input accept="image/*" 
+          type="file" className="formInput" 
+          onChange={handleImageUpload}/>
           <AiFillCamera />
         </div>
-        <TextField 
-        id="referral_code" 
-        label="Referral Code(Optional)" 
-        variant="outlined" 
+
+        <input 
+        className="formInput" 
         onChange={handleChange("referral")}/>
 
         <p>Payment Details</p>
 
-        <TextField 
-        id="bitcoin" 
-        label="Your Bitcoin Address"  
-        variant="outlined" 
+        <input 
+        className="formInput" 
         onChange={handleChange("bitcoinAddress")}/>
 
-        <TextField 
-        id="ethereum" 
-        label="Your Ethereum Address"  
-        variant="outlined" 
+        <input 
+        className="formInput" 
         onChange={handleChange("ethereumAddress")}/>
 
-        <TextField 
-        id="usdt" 
-        label="Your USDT Address"  
-        variant="outlined" 
+        <input 
+        className="formInput" 
         onChange={handleChange("usdtAddress")}/>
 
-        <div className={styles.checkbox}>
-          <input type="checkbox" onClick={handleCheckBox("policyChecked")}/>
+        <section className={styles.checkbox}>
+          <input 
+          type="checkbox" onClick={handleCheckBox("policyChecked")}/>
           <p>I agree to the <Link to="/policy">Terms and Condition</Link></p>
-        </div>
-        <div className={styles.checkbox}>
-          <input type="checkbox" onClick={handleCheckBox("emailChecked")}/>
-          <p>I agree to receive GENESIS EXPERTS and third party email</p>
-        </div>
+        </section>
+        
+        <section className={styles.checkbox}>
+          <input 
+          type="checkbox" onClick={handleCheckBox("emailChecked")}/>
+          <p>I agree to receive third party email</p>
+        </section>
         {formError.policyChecked && <p className="formError">{formError.policyChecked}</p>}
         {formError.emailChecked && <p className="formError">{formError.emailChecked}</p>}
         {error && <p className="formError">{error}</p>}

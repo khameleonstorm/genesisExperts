@@ -31,8 +31,9 @@
 }
 
 .header h3{
-  color: rgb(55, 255, 0);
-  font-weight: 600;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .withdrawal{
@@ -44,6 +45,7 @@
 }
 
 .withdrawal p{
-  color: rgba(255, 255, 255, 0.836);
-  font-size: .9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: .8rem;
+  font-weight: 100;
 }

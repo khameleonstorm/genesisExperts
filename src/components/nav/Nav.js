@@ -6,7 +6,6 @@ import useAuth from "../../hooks/useAuth"
 import { Helmet } from "react-helmet"
 
 export default function Nav({black}) {
-  const [navbg, setNavbg] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   const { user } = useAuth()
 
@@ -15,13 +14,7 @@ export default function Nav({black}) {
       console.log(showMenu)
   }
 
-  const handleNavbg = () => {
-    if (window.scrollY >=  80) {
-      setNavbg(true)  
-    } else {
-      setNavbg(false)
-    }
-  }
+
 
   return (
     <>
@@ -35,14 +28,14 @@ export default function Nav({black}) {
           `}
         </script>
       </Helmet>
-      <nav className={navbg? styles.container2 : styles.container}>
+      <nav className={styles.ctn}>
         <Link to="/" className={styles.logo}>
           <img src={logo} alt="logo"/>
         </Link>
 
         <div id="google_translate_element"></div>
 
-        {!(black) &&
+        {!black &&
           <div className={styles.menu}  style={showMenu ? {right:  "0"} : {right:  '-100%'}} onClick={handleClick}>
           <NavLink to="/">Home</NavLink>
           <NavLink to="/rent-home">Rent-home</NavLink>
@@ -65,15 +58,15 @@ export default function Nav({black}) {
       <div className={styles.hamburger} onClick={handleClick}>
           <span 
           className={showMenu ? styles.activeBar : styles.bar}
-          style={navbg?{background: "black"}: {background: ""}}
+          style={black ?{background: "black"}: {background: ""}}
           ></span>
           <span 
           className={showMenu ? styles.activeBar : styles.bar}
-          style={navbg?{background: "black"}: {background: ""}}
+          style={black ?{background: "black"}: {background: ""}}
           ></span>
           <span 
           className={showMenu ? styles.activeBar : styles.bar}
-          style={navbg?{background: "black"}: {background: ""}}
+          style={black ?{background: "black"}: {background: ""}}
           ></span>
       </div>
       </nav>

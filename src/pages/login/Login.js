@@ -75,13 +75,11 @@ export default function Login() {
       <Nav black={true}/>
       <form className="form" onSubmit={handleLogin}>
         <h1>Welcome Back!</h1>
-        <TextField 
-        id="email" 
-        label="Email" 
-        variant="outlined" 
+        <input 
+        placeholder='Email'
         autoComplete = 'off' 
         onChange={handleChange('email')}
-        {...(formError.email && {error: true, helperText: formError.email})}/>
+        className='formInput'/>
 
         {/* password input and event */}
         <FormControl sx={{ width: '100%' }} variant="outlined">

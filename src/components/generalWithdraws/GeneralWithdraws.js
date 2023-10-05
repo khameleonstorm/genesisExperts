@@ -4,26 +4,32 @@ import dateFormat from 'dateformat';
 
 export default function GeneralWithdraws({ withdrawals }) {
 const [active, setActive] = useState(0)
+const [random, setRandom] = useState(null)
+const [date, setDate] = useState(null)
 
 useEffect(() => {
   const interval = setInterval(() => {
     setActive((active + 1) % withdrawals.length);
-  }, 16000);
+    setRandom(Math.floor(Math.random() * (200 - 400) + 400))
+    setDate(dateFormat(new Date()))
+  }, 12000);
   return () => clearInterval(interval);
 }, [active, withdrawals.length]);
 
-const { name } = withdrawals[active];
+useEffect(() => {
 
-console.log(withdrawals)
+}, [])
+
+const { name } = withdrawals[active];
 
 
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <h3>${Math.floor(Math.random() * (200 - 400) + 400)}, 000</h3>
-        <p>Recent Withdrawal</p>
+        <p className={styles.recent}>Withdrawal</p>
+        <h3>${random}, 000</h3>
         <p>{name}</p>
-        <p>{dateFormat(new Date())}</p>
+        <p className={styles.date}>{date}</p>
       </div>
     </div>
   )

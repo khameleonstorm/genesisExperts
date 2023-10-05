@@ -1,45 +1,61 @@
-import { Link } from 'react-router-dom'
-import styles from './Testimonials.module.css'
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
-import { AiFillInstagram } from 'react-icons/ai';
+import s from './Testimonials.module.css'
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import { FreeMode, Autoplay } from "swiper";
 import { useEffect, useState } from 'react';
+import  Quote from '../../assets/quote.svg';
 
-export default function Testimonials({ title, subtitle, testimonials }) {
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+export default function Testimonials({ testimonials }) {
+  const [slidesPerView, setSlidesPerView] = useState(0.96);
 
-    // Use the useEffect hook to start an interval that changes the current testimonial every 5 seconds
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentTestimonial((currentTestimonial + 1) % testimonials.length);
-      }, 5000);
-      return () => clearInterval(interval);
-    }, [currentTestimonial, testimonials.length]);
-  
-    // Render the current testimonial
-    const { name, country, remark, image } = testimonials[currentTestimonial];
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth >= 600) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(0.99);
+      }
+    };
 
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>{title}</h1>
-      <p className={styles.subtitle}>{subtitle}</p>
-      <div className={styles.testimonials}>
-          <div className={styles.testimonial}>
-            <img src={image} alt={name} />
-            <div className={styles.testimonialInfo}>
-              <h3>{name}</h3>
-              <p>{country}</p>
-              <p className={styles.remark}>{remark}</p>
-              <div className={styles.social}>
-                <Link to="#"><FaTwitter /></Link>
-                <Link to="#"><FaFacebookF /></Link>
-                <Link to="#"><AiFillInstagram /></Link>
-                <Link to="#"><FaLinkedinIn /></Link>
-              </div>
+    <div className={s.ctn}>
+      <h1 className='title'>Testimonials</h1>
+      <Swiper
+        slidesPerView={slidesPerView}
+        freeMode={true}
+        modules={[FreeMode, Autoplay]}
+        className={s.wrp}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+      >
+
+          {testimonials.map((doc, i) => 
+          <SwiperSlide className={s.slide} key={i}>
+            <div className={s.avatar}>
+              <img width={40} height={40} src={`https://robohash.org/${doc.name}`} alt='avatar'/>
+              <p className={s.name}>{doc.name}</p>
             </div>
-          </div>
-      </div>
+
+            <p>{doc.message}</p>
+            <img src={Quote} className={s.quote} width={60} height={60} alt='quote'/>
+          </SwiperSlide> 
+          )}
+      </Swiper>
     </div>
   )
 }

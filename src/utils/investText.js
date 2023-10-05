@@ -1,4 +1,4 @@
-import invest from "../assets/sec3.png"
+import invest from "../assets/sec3.svg"
 
 
 export const investment = {
@@ -17,7 +17,7 @@ export const investment = {
     title: "STANDARD PLAN",
     falsepoints: ["Management fee", "Deposit fee"],
     truepoints: ["Pro Personalized Portfolio", "5% Referral Bonus", "ROI After 24 hours", "Min Withdrawal → $20", "24/7 Customer Care"],
-    background: "#FFE600", 
+    background: "#4E6E81", 
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const investment = {
     max: 999,
     falsepoints: ["Management fee", "Deposit fee"],
     truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 24 hours", "Min Withdrawal → $100", "24/7 Customer Care"],
-    background: "#00A3FF",   
+    background: "#F9DBBB",   
   },
   {
     id: 3,
@@ -47,6 +47,6 @@ export const investment = {
     title: "PROFESSIONAL PLAN",
     falsepoints: ["Management fee", "Deposit fee"],
     truepoints: ["Personalized Portfolio", "5% Referral Bonus", "ROI After 72 hours", "Min Withdrawal → $1000", "24/7 Customer Care"],
-    background: "#f67eff",    
+    background: "#FF0303",    
   },
 ]};

@@ -1,15 +1,14 @@
 .container{
   width: 100%;
-  height: 80vh;
+  height: 92vh;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   padding: 0 50px;
-  margin-top: -50px;
 }
 
 .left{
-  width: 48%;
+  width: 50%;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -18,17 +17,21 @@
 }
 
 .left h1{
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: white;
+  font-size: 5rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: -4px;
+  line-height: 1.1;
 }
 
 .left p{
-  font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  max-width: 500px;
+  font-size: 1.3rem;
+  font-weight: 200;
+  margin-bottom: 2rem;
+  color: #ffffff80;
 }
 
 .buttons{
@@ -39,18 +42,18 @@
 }
 
 .button1{
-  padding: 10px 20px;
+  padding: 14px 30px;
   border-radius: 35px;
-  background: #1649ff;
-  font-size: .9rem;
-  font-weight: 500;
+  background: #27b74e;
+  font-size: 1rem;
+  font-weight: 600;
   color: white;
   transition: all 0.3s ease;
 }
 
 .button2{
   color: whitesmoke;
-  font-size: .9rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -58,7 +61,7 @@
 }
 
 .button2:hover{
-  color: #1649ff;
+  color: #27b74e;
   cursor: pointer;
 }
 
@@ -70,21 +73,11 @@
 
 .right{
   width: 45%;
-  height: 80%;
-}
-
-.right2{
-  width: 45%;
   height: 85%;
 }
 
 .right img{
   width: 100%;
-  animation: upDown 1.5s linear infinite alternate-reverse;
-}
-
-.right2 img{
-  width: 85%;
   animation: upDown 1.5s linear infinite alternate-reverse;
 }
 
@@ -113,9 +106,7 @@
 .right img{
   width: 100%;
   padding-top: 50px;
-}
-
-.right2 img{
+} img{
   width: 95%;
   padding-top: 50px;
 }
@@ -124,15 +115,14 @@
 
 
 @media screen and (max-width: 950px){
-  
-.right img, .right2 img{
+.right img{
   padding-top: 90px;
 }
 }
 
 
 @media screen and (max-width: 800px){
-.right, .right2{
+.right{
   display: none;
 }
 
@@ -156,7 +146,6 @@
   height: fit-content;
   padding: 150px 20px 50px 20px;
 }
-
 
 .left{
   padding-right: 0;

@@ -157,7 +157,8 @@ export default function InvestmentCard({ title, subtitle, plans, showHeader, das
         </div>
       </div>
     }
-    <div className={styles.container} id="pricing">
+    <div className={styles.ctn} id="pricing">
+      <div className={styles.wrp}>
       {plans.map(plan  =>
         <div className={styles.card} key={plan.id} style={dashboard ? {background: "white"} : {}}>
           <div className={styles.content3} style={{ background: plan.background}}>
@@ -188,6 +189,7 @@ export default function InvestmentCard({ title, subtitle, plans, showHeader, das
           </div>
         </div>
       )}
+      </div>
     </div>
     </>
   )

@@ -1,10 +1,11 @@
 import styles from './HomeSec1.module.css';
 
-export default function HomeSec1({title, subtitle, card}) {
+export default function HomeSec1({title, subtitle, card, adjust}) {
   return (
     <div className={styles.container} id="services">
-      <h1 className={styles.title}>{title}</h1>
-      <p className={styles.subtitle}>{subtitle}</p>
+      {!adjust && <h1 className={styles.title}>{title}</h1>}
+      {!adjust && <p className={styles.subtitle}>{subtitle}</p>}
+
       <div className={styles.cardContainer}>
         {card.map((c, index) => (
           <div className={styles.card} key={index}>

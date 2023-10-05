@@ -85,19 +85,18 @@ export default function Properties({props, rent, user, error}) {
 
 
   return (props &&
-      <div className={s.container}>
+      <div className={s.ctn}>
+        <div className={s.wrp}>
         {message && <Message success={success} failed={failed}  setMessage={setMessage}/>}
         {!(!error && props.length > 1) && 
         <div className={s.error}>
-          <div>
-          </div>
-          <p>Could not fetch data from database...</p>
+          <p className='formError'>Could not fetch data from database...</p>
         </div>}
         <div className={s.content} >
             {(props && !error) && props.map(prop => 
               <div className={s.box} key={prop.property_id}>
                     <div className={s.img}>
-                      <img loading="eager" width={300} height={230} src={prop.primary_photo.href ? prop.primary_photo.href : prop.photos[0].href} alt={prop.description.type} />
+                      <img loading="eager" width={300} height={230} src={prop.primary_photo? prop.primary_photo.href : prop.photos[0].href} alt={prop.description.type} />
                     </div>
                     <div className={s.text}>
                       {!rent && <h3>${millify( prop.list_price || prop.list_price_max || prop.list_price_min )}</h3>}
@@ -130,6 +129,7 @@ export default function Properties({props, rent, user, error}) {
                     </div>
                 </div>
             )}
+          </div>
           </div>
       </div>
   )

@@ -1,24 +1,14 @@
 import heroPic from '../assets/hero1.svg';
-import client1 from '../assets/client-1.png';
-import client2 from '../assets/client-2.png';
-import client3 from '../assets/client-3.png';
-import client4 from '../assets/client-4.webp';
-import client5 from '../assets/client-5.png';
-import client6 from '../assets/client-6.png';
 import blue1 from '../assets/blue1.svg';
 import blue2 from '../assets/blue2.svg';
 import blue3 from '../assets/blue3.svg';
 import blue4 from '../assets/blue4.svg';
-import AccPNG from '../assets/sec1.png';
+import AccPNG from '../assets/sec1.jpg';
 import sec3GIF from '../assets/sec2.gif';
 import learningIcon from '../assets/learningicon.svg';
 import marketIcon from '../assets/marketicon.svg';
 import authenticationIcon from '../assets/authenticationicon.svg';
 import securityIcon from '../assets/securityicon.svg';
-import team1 from '../assets/team-1.jpg';
-import team2 from '../assets/team-2.png';
-import team3 from '../assets/team-3.jpg';
-import team4 from '../assets/team-2.jpg';
 import sec3 from '../assets/cta-bg.png';
 import sec5 from '../assets/sec5.gif';
 
@@ -113,15 +103,6 @@ export const heroText = {
   image: heroPic,
   link: 'https://youtu.be/x9J0NdV0u9k'
 }
-
-export const clientLogos = [
-  {image: client1},
-  {image: client2},
-  {image: client3},
-  {image: client4},
-  {image: client5},
-  {image: client6},
-];
 
 export const homeSec1Text = {
   title: 'GETTING STARTED',
@@ -226,36 +207,77 @@ export const services = {
   ]
 }
 
-export const testimonials = {
-  title: 'TESTIMONIALS',
-  subtitle: 'WHAT THEY SAY ABOUT GENESIS EXPERTS',
-  card: [
+
+export const testimonials = [
     {
-      image: team1,
-      name: 'Huan Peng',
-      country: 'China',
-      remark: "I was a bit skeptical at first, but GENESIS EXPERTS has exceeded my expectations. I have seen a steady increase in my investment portfolio and I am very pleased with the service. "
+      name: 'Sophie M',
+      message: "Genesis Experts has made navigating the complex world of finance a breeze. Their extensive range of services reflects their expertise. Genesis Experts's friendly demeanor and organized approach have made managing my investments effortless. For all things related to brokerage and financial planning, they're the ones I trust.",
     },
     {
-      image: team2,
-      name: 'Branca Agueda',
-      country: 'Canada',
-      remark: "On the recommendation of a friend, I first entered the investment horizon of GENESIS EXPERTS in 2019. As the investment process progressed, the facts proved that my investment returns were very punctual."
+      name: 'Daniel R',
+      message: "Genesis Experts epitomizes excellence in brokerage services. Their unwavering dedication to ensuring customer satisfaction sets them apart. With a secure approach, authentic insights, and swift responsiveness, every interaction is seamless. If you're looking for a broker who delivers results, I wholeheartedly recommend Genesis Experts!",
     },
     {
-      image: team3,
-      name: 'Miguel Elilio',
-      country: 'Portugal',
-      remark: "I  have been using GENESIS EXPERTS for a few months now and I am very happy with the results. The platform is easy to use and the customer service is excellent. Wonderful team, thank you."
+      name: 'Laura G',
+      message: "I've had the privilege of working with Genesis Experts for some time now, and their professionalism and knowledge continue to impress me. They provide thoughtful advice tailored to my financial goals and risk tolerance. Genesis Experts's commitment to their clients' success is truly remarkable.",
     },
     {
-      image: team4,
-      name: 'Johanna Werner',
-      country: 'Germany',
-      remark: "On the recommendation of a friend, I first entered the investment horizon of GENESIS EXPERTS in 2016. As the investment process progressed, the facts proved that my investment returns were very. "
+      name: 'Michael B',
+      message: "Genesis Experts's financial expertise has been a game-changer for me. Their insights into market trends and their ability to explain complex concepts in simple terms have empowered me to make better financial decisions. Their services have exceeded my expectations in every way.",
     },
-  ],
-};
+    {
+      name: 'Sarah L',
+      message: "Genesis Experts's commitment to their clients is truly commendable. Their dedication to achieving financial goals is evident in every interaction. Their insights have helped me navigate volatile markets with confidence, and their friendly approach makes discussing finances a breeze.",
+    },
+    {
+      name: 'Matthew H',
+      message: "Working with Genesis Experts has been enlightening. Their advice extends beyond mere financial matters; they're a holistic wealth advisor. Their personalized approach and genuine care for their clients' financial well-being are what set them apart. I'm grateful for their guidance.",
+    },
+    {
+      name: 'Sophia T',
+      message: "Genesis Experts's expertise stands out in a crowded financial landscape. Their knowledge of investment opportunities and risk management is unparalleled. They've not only helped me make informed decisions but also educated me along the way. I highly recommend their services.",
+    },
+    {
+      name: 'John P',
+      message: "Genesis Experts is a financial wizard. Their ability to foresee market trends and recommend timely actions is remarkable. I've achieved significant growth in my investments under their guidance. They're not just financial advisors; they're strategic partners in wealth-building.",
+    },
+    {
+      name: 'Elizabeth W',
+      message: "I've been a client of Genesis Experts for years, and their dedication to my financial success has never wavered. Their well-rounded expertise covers everything from retirement planning to tax-efficient investing. They're an invaluable asset in securing my financial future.",
+    },
+    {
+      name: 'Nathan T',
+      message: "Genesis Experts's commitment to ethical financial practices is inspiring. Their recommendations are always aligned with my values, and their transparency in explaining financial strategies is refreshing. With their guidance, I've been able to achieve my financial goals while staying socially responsible.",
+    },
+    {
+      name: 'Olivia C',
+      message: "Navigating the world of finance was overwhelming until I found Genesis Experts. Their patient and clear explanations have empowered me to take control of my financial decisions. Their insights have proven invaluable, and their customer-focused approach makes them stand out.",
+    },
+    {
+      name: 'Isaac J',
+      message: "Genesis Experts's dedication to continuous learning is evident in their up-to-date knowledge of financial trends. They're proactive in adapting strategies to changing market conditions, which has led to consistent returns on my investments. Their expertise is second to none.",
+    },
+    {
+      name: 'Sophie K',
+      message: "I'm impressed by Genesis Experts's commitment to education. They don't just tell me what to do; they explain the reasoning behind their recommendations. This has empowered me to make informed decisions about my financial future. Their guidance is truly transformative.",
+    },
+    {
+      name: 'Ella M',
+      message: "Genesis Experts's personalized approach sets them apart. They take the time to understand my financial aspirations and tailor strategies accordingly. Their availability for discussions and quick responses make me feel valued as a client. I highly recommend their services.",
+    },
+    {
+      name: 'Alexander S',
+      message: "I've worked with several financial advisors, but Genesis Experts is in a league of their own. Their insights are forward-thinking, and their commitment to helping clients succeed is unwavering. With their guidance, I've not only protected my wealth but also seen substantial growth.",
+    },
+    {
+      name: 'Sophia R',
+      message: "Genesis Experts's guidance extends beyond traditional finance. Their understanding of the digital economy and emerging technologies has helped me invest in future-oriented sectors. Their holistic approach to wealth management is truly commendable.",
+    },
+    {
+      name: 'Elijah M',
+      message: "In the unpredictable world of finance, Genesis Experts is my anchor. Their steady advice and analytical insights have guided me through turbulent times. Their dedication to their clients' financial well-being is unmatched. I'm grateful to have them as my advisors.",
+    },
+  ];
 
 export const homeSec5Text = {
   title: 'FAQS',

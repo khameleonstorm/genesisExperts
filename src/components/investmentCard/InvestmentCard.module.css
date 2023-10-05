@@ -1,11 +1,17 @@
-.container{
+.ctn{
   width: 100%;
-  padding: 30px 100px 100px 100px;
+  padding: 100px 10px;
+}
+
+.wrp{
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-content: center;
-  gap: 40px;
+  justify-content: space-around;
+  gap: 10px;
+  margin: 0 auto;
 }
 
 .header{
@@ -18,35 +24,22 @@
 }
 
 .title{
-  font-size: 3rem;
-  padding: 15px 0;
+  font-size: 2rem;
+  margin-bottom: 15px;
   text-shadow: 0 0 3px rgba(4, 0, 53, 0.5);
   position: relative;
 }
 
-.title::after{
-  content: '';
-  width: 50px;
-  padding: 2.5px;
-  border-radius: 3px;
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #000;
-  filter: drop-shadow(0 0 3px rgba(4, 0, 53, 0.5));
-}
-
 .subtitle{
   font-size: 1rem;
-  padding: 15px 0;
-  color: white;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .card{
-  width: 280px;
+  width: 100%;
+  max-width: 270px;
   border-radius: 20px;
-  padding: 45px 20px 30px 20px;
+  padding: 40px 15px 30px 15px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.03), 0 4px 10px 0 rgba(0, 0, 0, 0.09);
   position: relative;
   overflow: hidden;
@@ -61,26 +54,24 @@
 }
 
 .content1 h1{
-  color: rgb(255, 255, 255);
-  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2rem;
+  font-weight: 600;
   padding-bottom: 30px;
 }
 
 .content1 h2{
-  color: rgb(255, 255, 255);
-  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.3rem;
+  font-weight: 400;
   padding-bottom: 30px;
 }
 
 .content1 h3{
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 1rem;
+  font-weight: 200;
   padding-bottom: 8px;
-}
-
-.content1 p{
-  color: rgba(255, 255, 255, 0.848);
-  font-size: 1rem;
 }
 
 .content1 span{
@@ -111,7 +102,8 @@
 }
 
 .fact1 span p, .fact2 span p{
-  color: rgb(255, 255, 255);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 100;
 }
 
 .buttons{
@@ -126,30 +118,34 @@
   width: fit-content;
   display: flex;
   padding: 7px 15px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(75, 75, 75, 0.6);
   border-radius: 5px;
-  color: white;
+  color: #ffffff;
   font-size: 1rem;
-  transition: all .3s ease;
+  transition: all ease .3s ;
 }
 
 .button1:hover{
-  background: rgba(0, 208, 142, 0.398);
+  background: rgba(217, 255, 195, 0.3);
   color: black;
 }
 
 .button2{
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 5px;
-  font-size: 1rem;
+  font-size: .9rem;
   transition: all .3s ease;
 }
 
 .button2:hover{
   color: rgba(202, 255, 239, 0.8);
   gap: 10px;
+}
+
+.button2 svg{
+  margin-bottom: -3px;
 }
 
 .content3 {
@@ -223,27 +219,11 @@
 
 
 @media screen and (max-width: 1100px){
-.container{
+.ctn{
   padding: 50px 10px;
 }
-
 
 .title{
 font-size: 9vw;
 }
-
-.title::after{
-width: 15vw;
-padding: .3vw;
-}
-
-}
-
-@media screen and (max-width: 600px){
-  
-.card{
-  width: 90%;
-  height: fit-content;
-}
-
 }

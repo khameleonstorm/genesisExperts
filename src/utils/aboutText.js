@@ -1,4 +1,4 @@
-import aboutIMG from '../assets/abt.png';
+import aboutIMG from '../assets/abt.svg';
 import globe from '../assets/globecert.png';
 
 

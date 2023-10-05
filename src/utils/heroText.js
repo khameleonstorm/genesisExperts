@@ -1,4 +1,3 @@
-import shipBG from '../assets/shipBG.jpg';
 import rentBg from '../assets/rentBg.jpg';
 import buyBg from '../assets/buyBg.jpg';
 
@@ -7,7 +6,7 @@ export const ship = {
   title2: 'Solutions',
   title3: 'Around the World',
   description: 'We are able to provide a broad range of services including long haul, dedicated, regional and multiple pick up and deliver services.',
-  bg: shipBG,
+  bg: "",
 }
 
 export const rent = {

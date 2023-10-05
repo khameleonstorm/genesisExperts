@@ -12,7 +12,6 @@ import ReferralText from '../../components/referralText/ReferralText';
 import BuiltWith from '../../components/builtWith/BuiltWith';
 import Profile from '../../components/profile/Profile';
 import MiningOverview from '../../components/miningOverview/MiningOverview';
-import Clients from '../../components/clients/Clients';
 import CryptoChart from '../../components/cryptoChart/CryptoChart';
 import MarketPower from '../../components/marketPower/MarketPower';
 import Indices from '../../components/indices/Indices';
@@ -65,7 +64,7 @@ export default function Dashboard() {
     return (
       <div className="spinnerContainer">
         <div className="spinner">
-          <MoonLoader color="#1649ff" />
+          <MoonLoader color="#27b74e" />
         </div>
       </div>
     )
@@ -85,7 +84,6 @@ export default function Dashboard() {
         <ReferralText />
         <BuiltWith />
         <MiningOverview />
-        <Clients />
         <CryptoChart />
       </div>
       }
@@ -113,13 +111,11 @@ export default function Dashboard() {
 
       {page === 'chart' &&
       <div className={styles.main}>
-        <Clients />
         <Charts />
         <MarketPower />
         <Indices />
         <CrossRates />
         <IndicesFuture />
-        <Clients />
         <CryptoChart />
         <HeatMap />
       </div>

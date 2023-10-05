@@ -8,30 +8,16 @@
 }
 
 .title{
-  font-size: 3rem;
-  padding: 15px 0;
+  font-size: 2rem;
+  margin-bottom: 15px;
   text-shadow: 0 0 3px rgba(4, 0, 53, 0.5);
   position: relative;
-}
-
-.title::after{
-  content: '';
-  width: 50px;
-  padding: 2.5px;
-  border-radius: 3px;
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgb(255, 255, 255);
-  filter: drop-shadow(0 0 3px rgba(6, 0, 67, 0.5));
 }
 
 .subtitle{
   text-align: center;
   font-size: 1rem;
-  padding: 15px 0;
-  font-family: 'isidora_sansbold';
+  color: #ffffff80;
 }
 
 .cardContainer{
@@ -63,23 +49,23 @@
 }
 
 .card h3{
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 15px 0;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .card p{
   font-size: 1rem;
   padding: 15px 0;
   font-weight: 300;
-  color: white;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 
 @media screen and (max-width: 1100px){
-  .container{
-    padding: 0 20px;
-  }
+.container{
+  padding: 0 20px;
+}
 }
 
 

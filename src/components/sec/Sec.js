@@ -10,7 +10,7 @@ export default function Sec() {
           <p className={s.subtitle}>{logistic1.desc}</p>
         </div>
         <div className={s.right}>
-          <img src={logistic1.image} alt="logistic" width={400}/>
+          <img src={logistic1.image} alt="logistic"/>
         </div>
       </div>
     </div>

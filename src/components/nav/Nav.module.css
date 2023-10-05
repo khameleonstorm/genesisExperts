@@ -1,4 +1,4 @@
-.container, .container2{
+.ctn{
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -6,16 +6,12 @@
   height: 80px;
   padding: 0 50px;
   background: transparent;
+  backdrop-filter: blur(20px);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 100000;
   color: white;
-}
-
-.container2{
-  background-color: rgba(0, 0, 0, 0.03);
-  backdrop-filter: blur(20px);
 }
 
 .logo{
@@ -43,33 +39,35 @@
 
 .getStarted{
   padding: 8px 15px;
-  border-radius: 5px;
+  border-radius: 30px;
   font-weight: 400;
   font-size: 0.9rem;
-  background: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+  background: #00000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
   margin-left: 20px;
   transition: all 0.3s ease;
 }
 
 .getStarted:hover{
-  background: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  background: #ffffff;
+  color: #000000;
 }
 
 .login{
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 7px 18px;
+  border: 1px solid #ffffff;
+  border-radius: 30px;
   font-weight: 400;
   font-size: 0.9rem;
-  background: #00b35f;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   transition: all 0.3s ease;
 }
 
 .login:hover{
-  background: #00b35f;
-  color: rgb(255, 255, 255);
+  background: #ffffff00;
+  color: #ffffff;
 }
 
 .hamburger{
@@ -98,14 +96,15 @@
 
 
 @media screen and (max-width: 1100px){
-.container, .container2{
-  padding: 0 20px;
+.ctn{
+  padding: 0 10px;
 }
 }
 
 @media screen and (max-width: 800px){
 .logo img{
-  width: 130px;
+  width: 100px;
+  padding-top: 0;
 }
 
 .menu{
@@ -114,8 +113,8 @@
   right: 0;
   height: 100vh;
   width: 80vw;
-  background: white;
-  color: black;
+  background: #222831;
+  color: rgb(207, 207, 207);
   padding-top: 40px;
   flex-direction: column;
   justify-content: flex-start;

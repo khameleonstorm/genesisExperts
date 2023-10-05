@@ -1,0 +1,13 @@
+{
+  "workbench.colorTheme": "chameleon dark",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.preferredDarkColorTheme": "chameleon dark",
+  "workbench.preferredHighContrastColorTheme": "chameleon dark",
+  "workbench.preferredHighContrastLightColorTheme": "chameleon dark",
+  "workbench.preferredLightColorTheme": "chameleon dark",
+  "material-icon-theme.activeIconPack": "react",
+  "material-icon-theme.files.color": "#90a4ae",
+  "material-icon-theme.folders.associations": {
+    
+  }
+}

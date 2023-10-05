@@ -5,7 +5,7 @@
 
 .wrapper{
   width: 100%;
-  max-width: 980px;
+  max-width: 1000px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -17,8 +17,8 @@
   display: grid;
   place-content: center;
   border: 0.5px solid #4d4d4d;
-  border-radius: 40px;
-  padding: 22px 10px;
+  border-radius: 10px;
+  padding: 17px 10px;
 }
 
 .filter select{
@@ -46,15 +46,15 @@
   justify-content: space-between;
   gap: 20px;
   border: 0.5px solid #4d4d4d;
-  border-radius: 50px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .search div{
   width: 40px;
   height: 40px;
   background-color: #ffffff;
-  border-radius: 50%;
+  border-radius: 10px;
   display: grid;
   place-items: center;
 }
