@@ -44,13 +44,12 @@
 
 @media screen and (max-width: 768px){
 .ctn{
-  background-size: 150%;
+  background-size: 250%;
   height: 60vh;
 }
 
 .wrp{
   width: 100%;
-  margin-left: 20px;
 }
 
 .title{
@@ -59,6 +58,7 @@
 }
 
 .subtitle{
-  font-size: 17px;
+  font-size: 14px;
+  display: none;
 }
 }
