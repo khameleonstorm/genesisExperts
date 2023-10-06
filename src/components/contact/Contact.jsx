@@ -13,9 +13,11 @@ const Contact = () => {
           Dulux Express is the world's driving worldwide coordinations supplier — 
           we uphold industry and exchange the worldwide trade.
         </p>
-        <button className="bigBtn">
-          Contact Us
-        </button>
+        <a href={`mailto:help@genesis-experts.com`}>
+          <button className="bigBtn">
+            Contact Us
+          </button>
+        </a>
       </div>
     </div>
   )

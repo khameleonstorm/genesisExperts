@@ -107,10 +107,12 @@ li{
   border: none;
   font-weight: 1.1rem;
   font-family: sans-serif;
+  overflow-y: hidden;
 }
 
 #google_translate_element select option{
-  color: black;
+  background: #222831;
+  color: #ffffff;
 }
 
 #google_translate_element select:first-child{
@@ -147,6 +149,7 @@ li{
   position: relative;
   overflow: hidden;
   z-index: 1;
+  cursor: pointer;
 }
 
 .bigBtn::before{
@@ -245,9 +248,7 @@ li{
 
 
 
-
 /* form styling */
-
 .formCtn{
   min-height: 100vh;
   padding: 100px 0 0 0;

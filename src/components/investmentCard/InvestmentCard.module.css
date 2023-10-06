@@ -185,7 +185,6 @@
   padding: 20px;
 }
 
-
 .modalcontent h1{
   font-size: 1.2rem;
   color: rgba(0, 0, 0, 0.8);
@@ -226,4 +225,14 @@
 .title{
 font-size: 9vw;
 }
+
+}
+
+
+@media screen and (max-width: 500px){
+.card{
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+
 }

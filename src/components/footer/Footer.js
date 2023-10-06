@@ -25,7 +25,7 @@ export default function Footer() {
       </div>
       <div className={s.address}>
         <h2>Email</h2>
-        <p>help@genesis-experts.com</p>
+        <a href={`mailto:help@genesis-experts.com`}>help@genesis-experts.com</a>
       </div>
     </div>
     <Copyright />

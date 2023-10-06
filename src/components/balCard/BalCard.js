@@ -21,7 +21,6 @@ import useAuth from '../../hooks/useAuth';
 export default function BalCard() {
   const { user } = useAuth();
   const [balance, setBalance] = useState(null);
-  const [isActive, setIsActive] = useState(false);
   const [showReader, setShowReader] = useState(false)
   const [localProfit, setLocalProfit] = useState(0)
   const { document } = useCollection('profile', false, true);
@@ -45,27 +44,10 @@ export default function BalCard() {
         {title: "Withdrawal", bal: bal?.withdrawal},
       ]
       setBalance(bals)
-      console.log(bals)
 
-      if(bal?.balance > 0){
-        setIsActive(true)
-      } else {
-        setIsActive(false)
-      }
-
-      if(bal?.investment === 0){
-        setShowReader(false)
-        return
-      }
-      
-      if(bal?.investment === 0 && bal?.profit > 0){
-        setShowReader(false)
-        return
-      }
-      if(bal?.investment > 0 && bal?.profit > 0){
-        setShowReader(false)
-        return
-      }
+      if(bal?.investment === 0) return setShowReader(false)
+      if(bal?.investment === 0 && bal?.profit > 0) return setShowReader(false)
+      if(bal?.investment > 0 && bal?.profit > 0) return setShowReader(false)
 
       if(bal?.investment >= 50){
         setShowReader(true)
@@ -145,10 +127,7 @@ export default function BalCard() {
       }
   
     }
-
   }, [document, user])
-
-  console.log(showReader)
 
 
 
@@ -173,11 +152,11 @@ export default function BalCard() {
             </div>
   
             <div className={styles.cardbody}>
-              {bal.title !== "Profit" && <h1>${bal.bal}</h1>}
-              {(bal.title === "Profit" && !showReader) && <h1>${bal.bal}</h1>}
+              {bal.title !== "Profit" && <h1><span>$</span>{bal.bal}</h1>}
+              {(bal.title === "Profit" && !showReader) && <h1><span>$</span>{bal.bal}</h1>}
               {(bal.title === "Profit" && showReader) && 
-              <h1>${localProfit ? parseFloat(localProfit.toFixed(3)) : 0.000}</h1>}
-              <MdOutlineShowChart className={styles.chart} style={isActive ?{color: "#00ffaa"} : {color: "#e90000"}}/>
+              <h1><span>$</span>{localProfit ? parseFloat(localProfit.toFixed(3)) : 0.000}</h1>}
+              <MdOutlineShowChart className={styles.chart} style={bal.bal > 0 ? {color: "#05C169"} : {color: "#e90000"}}/>
             </div>
           </div>
         ))}

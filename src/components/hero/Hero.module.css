@@ -8,7 +8,8 @@
 }
 
 .left{
-  width: 50%;
+  width: 100%;
+  max-width: 600px;
   height: 80%;
   display: flex;
   flex-direction: column;
@@ -17,7 +18,7 @@
 }
 
 .left h1{
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
   color: rgba(255, 255, 255, 0.7);
