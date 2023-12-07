@@ -241,6 +241,7 @@ export default function SignUp() {
           value={values.country}
           onChange={handleChange('country')}
           className='formInput'
+          style={{padding: "18px"}}
         >
           <option readOnly>Country</option>
           {countries.map((country, index) => (
@@ -252,7 +253,9 @@ export default function SignUp() {
         <select
           value={values.gender}
           onChange={handleChange('gender')}
-          className='formInput'>
+          className='formInput'
+          style={{padding: "18px"}}
+          >
           <option readOnly>Gender</option>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
@@ -298,21 +301,21 @@ export default function SignUp() {
 
         <input 
         className="formInput" 
-        onChange={handleChange("referral")}/>
+        onChange={handleChange("referral")} placeholder='Referral'/>
 
         <p>Payment Details</p>
 
         <input 
         className="formInput" 
-        onChange={handleChange("bitcoinAddress")}/>
+        onChange={handleChange("bitcoinAddress")} placeholder='Bitcoin Address'/>
 
         <input 
         className="formInput" 
-        onChange={handleChange("ethereumAddress")}/>
+        onChange={handleChange("ethereumAddress")} placeholder='Ethereum Address'/>
 
         <input 
         className="formInput" 
-        onChange={handleChange("usdtAddress")}/>
+        onChange={handleChange("usdtAddress")} placeholder='Usdt Address'/>
 
         <section className={styles.checkbox}>
           <input 
